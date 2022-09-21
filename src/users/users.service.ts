@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { USER_REPOSITORY } from './constants';
 import { UserDto } from './dtos/index.dto';
@@ -13,15 +13,31 @@ export class UsersService {
   async create(user: UserDto): Promise<User> {
     return await this.userRepository.create<User>(user);
   }
-  async show(): Promise<User[]> {
-    return await this.userRepository.findAll();
+  async show() {
+    const users = await this.userRepository.findAll();
+    return (users || []).map((user) => {
+      const { password, ...results } = user['dataValues'];
+      return results;
+    });
   }
   async update(id: number, user: UserDto) {
-    // TODO: HANDLE ERRORS FOR WHEN USER IS NOT FOUND
-    return await this.userRepository.update({ ...user }, { where: { id } });
+    const userExist = await this.findOneById(id);
+    if (!userExist) {
+      throw new NotFoundException('User does not exist');
+    }
+    const [numberOfAffectedRows, [updatedUser]] =
+      await this.userRepository.update(
+        { ...user },
+        { where: { id }, returning: true },
+      );
+    const { password, ...results } = updatedUser['dataValues'];
+    return results;
   }
   async delete(id: number) {
-    // TODO: HANDLE ERRORS FOR WHEN USER IS NOT FOUND
+    const userExist = await this.findOneById(id);
+    if (!userExist) {
+      throw new NotFoundException('User does not exist');
+    }
     return this.userRepository.destroy({ where: { id } });
   }
 
