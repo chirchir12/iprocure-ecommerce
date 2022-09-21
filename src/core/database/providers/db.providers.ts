@@ -3,6 +3,7 @@ import { DEVELOPMENT, SEQUELIZE, TEST, PRODUCTION } from '../constants';
 import { dbConfig } from '../config';
 import { User } from '../../../users/entities/user.entity';
 import { Role } from '../../../roles/entities/role.entity';
+import { Product } from '../../../products/entities/product.entity';
 // factory providers
 export const dbConProviders = [
   {
@@ -23,7 +24,7 @@ export const dbConProviders = [
           config = dbConfig.dev;
       }
       const sequelize = new Sequelize(config);
-      sequelize.addModels([User, Role]);
+      sequelize.addModels([User, Role, Product]);
       await sequelize.sync();
       return sequelize;
     },
