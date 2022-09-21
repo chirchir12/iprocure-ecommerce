@@ -31,5 +31,5 @@ export class User extends Model<User> {
     type: DataType.STRING,
     allowNull: false,
   })
-  phoneNumber: number;
+  phoneNumber: string;
 }

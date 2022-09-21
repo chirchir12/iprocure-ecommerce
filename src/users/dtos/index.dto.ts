@@ -3,5 +3,5 @@ export class UserDto {
   readonly lastName: string;
   readonly email: string;
   readonly password: string;
-  readonly phoneNumber: number;
+  readonly phoneNumber: string;
 }
