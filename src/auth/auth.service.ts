@@ -31,7 +31,7 @@ export class AuthService {
 
   async register(user) {
     // generate hash
-    const password = await this.hashPassword(user.password);
+    const password = await this.userService.hashPassword(user.password);
 
     // register user in db
     const newUser = await this.userService.create({ ...user, password });
@@ -49,10 +49,6 @@ export class AuthService {
     dbPassword: string,
   ): Promise<boolean> {
     return await bcrypt.compare(password, dbPassword);
-  }
-
-  private async hashPassword(password: string) {
-    return await bcrypt.hash(password, 10);
   }
 
   private async generateToken(user) {

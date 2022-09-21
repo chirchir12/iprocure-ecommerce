@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { DEVELOPMENT, SEQUELIZE, TEST, PRODUCTION } from '../constants';
 import { dbConfig } from '../config';
 import { User } from '../../../users/entities/user.entity';
-
+// factory providers
 export const dbConProviders = [
   {
     provide: SEQUELIZE,

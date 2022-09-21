@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
 import { USER_REPOSITORY } from './constants';
 import { UserDto } from './dtos/index.dto';
 import { User } from './entities/user.entity';
@@ -30,5 +31,9 @@ export class UsersService {
 
   async findOneById(id: number): Promise<User> {
     return await this.userRepository.findOne<User>({ where: { id } });
+  }
+
+  async hashPassword(password: string) {
+    return await bcrypt.hash(password, 10);
   }
 }
