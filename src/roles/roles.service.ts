@@ -27,7 +27,7 @@ export class RolesService {
         { ...role },
         { where: { id }, returning: true },
       );
-    const { password, ...results } = updatedRole['dataValues'];
+    const { ...results } = updatedRole['dataValues'];
     return results;
   }
 
