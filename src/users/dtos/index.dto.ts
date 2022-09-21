@@ -11,8 +11,6 @@ export class UserDto {
   readonly email: string;
 
   @IsNotEmpty()
-  @Max(50)
-  @Min(7)
   readonly password: string;
 
   @IsNotEmpty()
