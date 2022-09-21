@@ -28,7 +28,7 @@ export class User extends Model<User> {
   email: string;
 
   @Column({
-    type: DataType.NUMBER,
+    type: DataType.STRING,
     allowNull: false,
   })
   phoneNumber: number;
