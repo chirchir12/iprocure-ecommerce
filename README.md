@@ -1,4 +1,4 @@
-#E-Commerce Application (Nest Framework)
+# E-Commerce Application (Nest Framework)
 ## Description
 
 ensure you have the following in order to run this application
