@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
@@ -37,5 +38,10 @@ export class ProductsController {
   @Delete(':id')
   async delete(@Param('id') id: number) {
     return this.productService.delete(id);
+  }
+
+  @Get('search')
+  async search(@Query() query) {
+    return await this.productService.searchByNameOrPrice(query);
   }
 }

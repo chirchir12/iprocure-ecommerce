@@ -1,7 +1,13 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Inject,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PRODUCT_REPOSITORY } from './constants';
 import { ProductDto } from './dtos/product.dto';
 import { Product } from './entities/product.entity';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class ProductsService {
@@ -38,5 +44,30 @@ export class ProductsService {
       throw new NotFoundException('Product does not exist');
     }
     return this.productRepository.destroy({ where: { id } });
+  }
+
+  async searchByNameOrPrice(query) {
+    if (!query) {
+      throw new NotFoundException('product does not exist');
+    }
+    const keys = Object.keys(query);
+    if (!keys.includes('name') || !keys.includes('price')) {
+      throw new BadRequestException(
+        'search string must be either name or price',
+      );
+    }
+    const products = this.productRepository.findAll({
+      where: {
+        [Op.or]: [
+          { name: { [Op.like]: `%${query.name}%` } },
+          { unitCost: query.price },
+        ],
+      },
+    });
+
+    if (!products) {
+      throw new NotFoundException('product does not exist');
+    }
+    return products;
   }
 }
