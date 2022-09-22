@@ -39,7 +39,7 @@ export class ProductsController {
   async delete(@Param('id') id: number) {
     return this.productService.delete(id);
   }
-
+  @UseGuards(AuthGuard('jwt'))
   @Get('search')
   async search(@Query() query) {
     return await this.productService.searchByNameOrPrice(query);
