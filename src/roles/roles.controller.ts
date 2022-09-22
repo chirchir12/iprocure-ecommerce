@@ -6,14 +6,17 @@ import {
   Put,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { RoleDto } from './dtos/role.dto';
+import { DoesRoleExist } from './guards/role.guard';
 import { RolesService } from './roles.service';
 
 @Controller('roles')
 export class RolesController {
   constructor(private readonly roleService: RolesService) {}
 
+  @UseGuards(DoesRoleExist)
   @Post('new')
   async create(@Body() role: RoleDto) {
     return this.roleService.create(role);
