@@ -25,7 +25,7 @@ export const dbConProviders = [
       }
       const sequelize = new Sequelize(config);
       sequelize.addModels([User, Role, Product]);
-      await sequelize.sync();
+      //await sequelize.sync();
       return sequelize;
     },
   },
