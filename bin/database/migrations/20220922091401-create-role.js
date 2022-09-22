@@ -24,6 +24,15 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
+      createdAt: {
+        type: Sequelize.DATE,
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+      },
     });
   },
 
