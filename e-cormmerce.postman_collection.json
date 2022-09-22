@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "8410ea3a-3282-4014-9533-3b5d3d295fbc",
+		"name": "e-cormmerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8651968"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Chirchi\",\n    \"lastName\": \"chirchir\",\n    \"email\": \"chirchirrrrr44@gmail.com\",\n    \"password\": \"chirchirrrrr\",\n    \"phoneNumber\": \"+254705814794\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\":\"Chirchi\",\n    \"lastName\": \"Emmanuel\",\n    \"email\": \"chirchirrrr@gmail.com\",\n    \"password\": \"chirchir\",\n    \"phoneNumber\": \"254705814795\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"chirchirrrrr44@gmail.com\",\n    \"password\": \"chirchirrrrr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "manage users",
+			"item": [
+				{
+					"name": "add new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Chirchi\",\n    \"lastName\": \"chirchir\",\n    \"email\": \"chirchirrrrrrr44@gmail.com\",\n    \"password\": \"chirchirrrrr\",\n    \"phoneNumber\": \"+254705814794\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/users/new",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3ROYW1lIjoiQ2hpcmNoaSIsImxhc3ROYW1lIjoiY2hpcmNoaXIiLCJlbWFpbCI6ImNoaXJjaGlycnJycjQ0QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiKzI1NDcwNTgxNDc5NCIsInVwZGF0ZWRBdCI6IjIwMjItMDktMjJUMTA6NTY6NTUuNDI4WiIsImNyZWF0ZWRBdCI6IjIwMjItMDktMjJUMTA6NTY6NTUuNDI4WiIsImlhdCI6MTY2Mzg0NDIxNSwiZXhwIjoxNjYzODQ3ODE1fQ.S_QJgtugtVtKlDRSgJcNLaVVWGU1N9tKn0pHB3owLs8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/users/show",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Browen\",\n    \"lastName\": \"chirchir\",\n    \"email\": \"chirchirrrrrrr4r4@gmail.com\",\n    \"password\": \"chirchirrrrr\",\n    \"phoneNumber\": \"+254705814794\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/users/11111",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"11111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "manage roles",
+			"item": [
+				{
+					"name": "add new role",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"updateUser\",\n    \"description\": \"role to add users as admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/roles/new",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQ2hpcmNoaSIsImxhc3ROYW1lIjoiY2hpcmNoaXIiLCJlbWFpbCI6ImNoaXJjaGlycnJycjQ0QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiKzI1NDcwNTgxNDc5NCIsInVwZGF0ZWRBdCI6IjIwMjItMDktMjJUMTA6MzQ6MjYuOTc5WiIsImNyZWF0ZWRBdCI6IjIwMjItMDktMjJUMTA6MzQ6MjYuOTc5WiIsImlhdCI6MTY2Mzg0Mjg2NiwiZXhwIjoxNjYzODQ2NDY2fQ.fjLKL5cKvdHVsPhIpw1LeSdKFV8kvLql_02gH_9af_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/roles/show",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update role",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"updateUser\",\n    \"description\": \"role to update users as admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/roles/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete role",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/roles/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "manage products",
+			"item": [
+				{
+					"name": "add product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3ROYW1lIjoiQ2hpcmNoaSIsImxhc3ROYW1lIjoiRW1tYW51ZWwiLCJlbWFpbCI6ImNoaXJjaGlycnJAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiIyNTQ3MDU4MTQ3OTUiLCJjcmVhdGVkQXQiOiIyMDIyLTA5LTIxVDE1OjQ5OjE0LjEzMFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTA5LTIxVDE1OjQ5OjE0LjEzMFoiLCJpYXQiOjE2NjM4MjUxOTQsImV4cCI6MTY2MzgyODc5NH0.Jn636UXrJM5fHBFNVjw_ZhoQidgMapersQ-0kLaDd_U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Phone\",\n    \"type\": \"hp\",\n    \"description\": \"laptops product\",\n    \"category\": \"small\",\n    \"manufacturer\":\"hp\",\n    \"distributor\": \"SoftTech\",\n    \"quantity\":30,\n    \"unitCost\":\"30.5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/products/new",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/products/show",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"show"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Desktop\",\n    \"type\": \"hp\",\n    \"description\": \"Desktop product\",\n    \"category\": \"small\",\n    \"manufacturer\":\"hp\",\n    \"distributor\": \"SoftTech\",\n    \"quantity\":30,\n    \"unitCost\":\"30.5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/products/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/products/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3ROYW1lIjoiQ2hpcmNoaSIsImxhc3ROYW1lIjoiRW1tYW51ZWwiLCJlbWFpbCI6ImNoaXJjaGlycnJAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiIyNTQ3MDU4MTQ3OTUiLCJjcmVhdGVkQXQiOiIyMDIyLTA5LTIxVDE1OjQ5OjE0LjEzMFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTA5LTIxVDE1OjQ5OjE0LjEzMFoiLCJpYXQiOjE2NjM4MjgzOTEsImV4cCI6MTY2MzgzMTk5MX0.o3mxhUpCwyaC7Dm5fhcDSpl_Gb8-V-2P1fck4LhpdL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/products/search?name=444&price=30.5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "444"
+								},
+								{
+									"key": "price",
+									"value": "30.5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
