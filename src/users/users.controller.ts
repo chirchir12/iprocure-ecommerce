@@ -6,14 +6,17 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { UserDto } from './dtos/index.dto';
+import { DoesUserExist } from './guards/userExist.guard';
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
+  @UseGuards(DoesUserExist)
   @Post('new')
   async create(@Body() user: UserDto) {
     const Newuser = await this.userService.create(user);
